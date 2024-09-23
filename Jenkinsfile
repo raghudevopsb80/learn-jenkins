@@ -20,9 +20,12 @@ node() {
       print 'Compile'
     }
 
-    stage('Test Cases') {
-      print 'Test Cases'
+    if(BRANCH_NAME != "main") {
+      stage('Test Cases') {
+        print 'Test Cases'
+      }
     }
+
   }
 
 }
