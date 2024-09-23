@@ -1,60 +1,23 @@
-pipeline {
-  agent any
+node() {
 
-  stages {
+  stage('Compile') {
+    print 'Compile'
+  }
 
-      stage('Compile') {
-        steps {
-          echo 'Compile'
-        }
-      }
+  stage('Test Cases') {
+    print 'Test Cases'
+  }
 
-      stage('Test Cases') {
-        when {
-          expression { env.BRANCH_NAME != 'main' }
-        }
-        steps {
-          echo 'Test Cases'
-        }
-      }
+  stage('Docker Build') {
+    print 'Docker Build'
+  }
 
-      stage('Docker Build') {
-        when {
-          not {
-            branch '**'
-          }
-          tag ''
-        }
-        steps {
-          echo 'Docker Build'
-        }
-      }
+  stage('Docker Push') {
+    print 'Docker Push'
+  }
 
-      stage('Docker Push') {
-        when {
-          not {
-            branch '**'
-          }
-          tag ''
-        }
-        steps {
-          echo 'Docker Push'
-        }
-      }
-
-      stage('Deploy to Dev') {
-        when {
-          not {
-            branch '**'
-          }
-          tag ''
-        }
-        steps {
-          echo 'Deploy to Dev'
-        }
-      }
-
+  stage('Deploy to Dev') {
+    print 'Deploy to Dev'
   }
 
 }
-
