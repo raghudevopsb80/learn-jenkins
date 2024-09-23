@@ -20,6 +20,12 @@ pipeline {
 
       stage('Docker Build') {
         when {
+          not {
+            branch '**'
+          }
+          tag ''
+        }
+        when {
           expression { env.BRANCH_NAME != 'main' }
         }
         steps {
@@ -29,6 +35,12 @@ pipeline {
 
       stage('Docker Push') {
         when {
+          not {
+            branch '**'
+          }
+          tag ''
+        }
+        when {
           expression { env.BRANCH_NAME != 'main' }
         }
         steps {
@@ -37,6 +49,12 @@ pipeline {
       }
 
       stage('Deploy to Dev') {
+        when {
+          not {
+            branch '**'
+          }
+          tag ''
+        }
         when {
           expression { env.BRANCH_NAME != 'main' }
         }
