@@ -4,7 +4,6 @@ pipeline {
   stages {
 
       stage('Compile') {
-        when { branch 'main' }
         steps {
           echo 'Compile'
         }
