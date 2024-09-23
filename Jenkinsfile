@@ -33,4 +33,4 @@
 
 @Library('roboshop-jenkins-library') _
 
-ci-pipeline()
+ci_pipeline()
