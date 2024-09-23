@@ -3,8 +3,6 @@ pipeline {
 
   stages {
 
-    stages {
-
       stage('Compile') {
         steps {
           echo 'Compile'
@@ -34,8 +32,6 @@ pipeline {
           echo 'Deploy to Dev'
         }
       }
-
-    }
 
   }
 
