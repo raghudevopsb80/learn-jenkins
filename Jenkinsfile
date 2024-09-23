@@ -25,9 +25,6 @@ pipeline {
           }
           tag ''
         }
-        when {
-          expression { env.BRANCH_NAME != 'main' }
-        }
         steps {
           echo 'Docker Build'
         }
@@ -40,9 +37,6 @@ pipeline {
           }
           tag ''
         }
-        when {
-          expression { env.BRANCH_NAME != 'main' }
-        }
         steps {
           echo 'Docker Push'
         }
@@ -54,9 +48,6 @@ pipeline {
             branch '**'
           }
           tag ''
-        }
-        when {
-          expression { env.BRANCH_NAME != 'main' }
         }
         steps {
           echo 'Deploy to Dev'
