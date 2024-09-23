@@ -2,24 +2,27 @@ node() {
 
   sh 'env'
 
-  stage('Compile') {
-    print 'Compile'
-  }
+  if (env.TAG_NAME) {
+    stage('Docker Build') {
+      print 'Docker Build'
+    }
 
-  stage('Test Cases') {
-    print 'Test Cases'
-  }
+    stage('Docker Push') {
+      print 'Docker Push'
+    }
 
-  stage('Docker Build') {
-    print 'Docker Build'
+    stage('Deploy to Dev') {
+      print 'Deploy to Dev'
+    }
   }
+  else {
+    stage('Compile') {
+      print 'Compile'
+    }
 
-  stage('Docker Push') {
-    print 'Docker Push'
-  }
-
-  stage('Deploy to Dev') {
-    print 'Deploy to Dev'
+    stage('Test Cases') {
+      print 'Test Cases'
+    }
   }
 
 }
