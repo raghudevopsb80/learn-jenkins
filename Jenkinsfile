@@ -12,7 +12,7 @@ pipeline {
 
       stage('Test Cases') {
         when {
-          expression { env.BRANCH_NAME != 'master' }
+          expression { env.BRANCH_NAME != 'main' }
         }
         steps {
           echo 'Test Cases'
@@ -21,7 +21,7 @@ pipeline {
 
       stage('Docker Build') {
         when {
-          expression { env.BRANCH_NAME != 'master' }
+          expression { env.BRANCH_NAME != 'main' }
         }
         steps {
           echo 'Docker Build'
@@ -30,7 +30,7 @@ pipeline {
 
       stage('Docker Push') {
         when {
-          expression { env.BRANCH_NAME != 'master' }
+          expression { env.BRANCH_NAME != 'main' }
         }
         steps {
           echo 'Docker Push'
@@ -39,7 +39,7 @@ pipeline {
 
       stage('Deploy to Dev') {
         when {
-          expression { env.BRANCH_NAME != 'master' }
+          expression { env.BRANCH_NAME != 'main' }
         }
         steps {
           echo 'Deploy to Dev'
