@@ -1,5 +1,7 @@
 node() {
 
+  sh 'env'
+
   stage('Compile') {
     print 'Compile'
   }
